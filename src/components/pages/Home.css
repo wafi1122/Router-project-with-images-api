@@ -3,7 +3,7 @@
     margin: 100px auto 50px;
     font-weight: 600;
 }
-form{
+.home-form{
     width: 90%;
     max-width: 600px;
     margin: auto;
@@ -13,7 +13,7 @@ form{
     align-items: center;
     border-radius: 8px;
 }
-form input{
+.search-anything{
     flex: 1;
     height: 100%;
     border: 0;
@@ -24,7 +24,7 @@ form input{
     padding: 0 30px;
    
 }
-form button{
+.search-button{
     padding: 0 40px;
     height: 100%;
     background: #ff3929;
@@ -39,10 +39,10 @@ form button{
 
 
 }
-::placeholder{
+/* ::placeholder{
     color: white;
     font-size: 18px;
-}
+} */
 .abouts-btn{
     display: flex;
     gap: 10px;
@@ -56,8 +56,6 @@ form button{
     outline: none;
     padding: 10px 20px;
     border-radius: 4px;
-    /* margin:10px auto 100px ; */
-    display: block;
     cursor: pointer;
 }
 .next-btn{
@@ -67,8 +65,34 @@ form button{
     outline: none;
     padding: 10px 40px;
     border-radius: 4px;
+    margin-bottom: 60px;
     /* margin:10px auto 100px ; */
     display: block;
     cursor: pointer;
 }
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* always 3 columns */
+    gap: 14px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+  }
+.gallery-item{
+    border-radius: 8px;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
 
+}
+.gallery-item img{
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+}
+.image-meta{
+    padding: 8px 10px;
+    font-size: 13px;
+    color: #333;
+}

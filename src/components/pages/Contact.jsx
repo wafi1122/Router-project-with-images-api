@@ -1,42 +1,45 @@
 import { useState } from "react";
+import "./Contact.css"
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: ""
-  });
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert(`Thanks, ${formData.name}! We received your message.`);
-    setFormData({ name: "", email: "", message: "" }); // clear form
-  };
 
   return (
-    <div>
-      <h2>Contact Us</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Name: </label>
-          <input type="text" name="name" value={formData.name} onChange={handleChange} required />
+    <>
+      <section className="head-form">
+
+        <div className="wrapper">
+          <h2>Registration</h2>
+          <form action="#">
+            <div className="input-box">
+              <input type="text" required placeholder="Enter Your Name" />
+            </div>
+            <div className="input-box">
+              <input type="text" required placeholder="Enter Your Email" />
+            </div>
+            <div className="input-box">
+              <input type="password" required placeholder="Password" />
+            </div>
+            <div className="input-box">
+              <input type="password" required placeholder="Confirm Password" />
+            </div>
+            <div className="policy">
+              <input type="checkbox" />
+              <h3>Accept all terms & conditions</h3>
+            </div>
+            <div className="input-box button">
+              <button className="form-btn">Register Now</button>
+            </div>
+            <div className="text">
+              <h3>Already have an account ? <a href="#">Login Now</a>
+              </h3>
+            </div>
+          </form>
         </div>
-        <div>
-          <label>Email: </label>
-          <input type="email" name="email" value={formData.email} onChange={handleChange} required />
-        </div>
-        <div>
-          <label>Message: </label>
-          <textarea name="message" value={formData.message} onChange={handleChange} required />
-        </div>
-        <button type="submit">Send</button>
-      </form>
-    </div>
-  );
-};
+      </section>
+    </>
+  )
+
+}
 
 export default Contact;
