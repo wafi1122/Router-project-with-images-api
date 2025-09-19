@@ -1,10 +1,11 @@
-.head-form{
+.head-form {
     min-height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.wrapper{
+
+.wrapper {
     position: relative;
     max-width: 430px;
     width: 100%;
@@ -12,60 +13,78 @@
     background: white;
     padding: 34px;
     border-radius: 6px;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
-.wrapper h2{
+
+.wrapper h2 {
     position: relative;
     font-size: 22px;
     font-weight: 600;
     color: #333;
 }
-.wrapper h2::before{
+
+.wrapper h2::before {
     content: "";
     position: absolute;
     top: 0;
     bottom: 0;
     height: 3px;
-    width:28px ;
+    width: 28px;
     border-radius: 12px;
     background: #4070f4;
 }
+
 .wrapper form {
     margin-top: 30px;
 
 }
-.wrapper form .input-box{
-    height: 40px;
+
+.wrapper form .input-box {
     margin: 12px 0;
+    display: flex;
+    flex-direction: column;
+
 }
-form .input-box input{
-    height: 100%;
+
+.input-box p {
+    font-size: 12px;
+    color: red;
+    margin-top: 5px;
+}
+
+form .input-box input {
+    height: 40px;
+    /* input always stays same size */
     width: 100%;
     outline: none;
     padding: 0 15px;
     font-size: 14px;
     font-weight: 400;
     color: #333;
-    border:1.5px solid #C7BEBE;
+    border: 1.5px solid #C7BEBE;
     border-bottom-width: 2.5px;
     border-radius: 6px;
-    transition: all 0,3s ease;
+    transition: all 0.3s ease;
 }
+
 .input-box input:focus,
-.input-box input:valid{
+.input-box input:valid {
     border-color: #4070f4;
 }
-.policy{
+
+.policy {
     display: flex;
     align-items: center;
 }
-form  h3{
+
+form h3 {
     color: #707070;
     font-size: 14px;
     font-weight: 500;
     margin-left: 10px;
 }
-.form-btn{
+
+.form-btn {
     color: #fff;
     letter-spacing: 1px;
     border: none;
@@ -73,21 +92,52 @@ form  h3{
     background: #4070f4;
     padding: 10px 20px;
     width: 100%;
-    border-radius:4px;
+    border-radius: 4px;
 }
-.form-btn:hover{
+
+.form-btn:hover {
     background: #0e4bf1;
 }
 
-form .text h3{
+form .text h3 {
     color: #333;
     width: 100%;
     text-align: center;
 }
+
 form .text h3 a {
     /* color: ; */
     text-decoration: none;
 }
-form .text h3 a:hover{
+
+form .text h3 a:hover {
     text-decoration: underline;
+}
+
+/* ..........spinner................ */
+.spinner {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    /* visible border */
+    border-top: 3px solid transparent;
+    /* makes the "gap" so it looks like spinning */
+    display: inline-block;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.spinner {
+    margin: 0 auto;
+    /* centers inside button */
+}
+
+.error-text{
+    color: red;
 }

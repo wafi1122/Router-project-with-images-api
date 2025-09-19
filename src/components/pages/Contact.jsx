@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Contact.css"
+import { Link } from "react-router-dom";
 
 const Contact = () => {
   const [name, setName] = useState("")
@@ -8,7 +9,10 @@ const Contact = () => {
   const [confirmPassword, setConfirmPassword] = useState("")
   const [errors, setErrors] = useState({});
   const [success, setSuccess] = useState("");
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
+  const [accepted, setAccepted] = useState(false)
+
+ 
 
   const isValidEmail = (email) => {
     return /\S+@\S+\.\S+/.test(email)
@@ -46,6 +50,9 @@ const Contact = () => {
     if (password !== confirmPassword) {
       newErrors.confirmPassword = "passwords do not match"
     }
+    if (!accepted){
+      newErrors.accepted = true;
+    }
     setErrors(newErrors);
 
     if(Object.keys(newErrors).length === 0){
@@ -55,13 +62,13 @@ const Contact = () => {
       setEmail("")
       setPassword("")
       setConfirmPassword("")
-      setConfirmPassword("")
       setErrors({});
     }else{
       setSuccess("")
     }
     setLoading(false);
   }
+
 
 
 
@@ -89,15 +96,16 @@ const Contact = () => {
               {errors.confirmPassword && <p style={{ color: "red" }}>{errors.confirmPassword}</p>}
             </div>
             <div className="policy">
-              <input type="checkbox" />
-              <h3>Accept all terms & conditions</h3>
+              <input type="checkbox" checked={accepted} onChange={(e) => setAccepted(e.target.checked)}/>
+              <h3 className={!accepted && errors.accepted ? "error-text" : ""}>Accept all terms & conditions</h3>
+              {errors.accepted && <p style={{color:"red"}}>{errors.accepted}</p>}
             </div>
             <div className="input-box button">
-                <button className="form-btn" disabled={loading}>{loading ? "Submitting..." : "Register Now"}</button>
+                <button className="form-btn" disabled={loading}>{loading ? <span className="spinner"></span> : "Register Now"}</button>
               {success && <p style={{color:"green", textAlign:"center"}}>{success}</p>}
             </div>
             <div className="text">
-              <h3>Already have an account ? <a href="#">Login Now</a>
+              <h3>Already have an account ? <Link to="/login">Login Now</Link>
               </h3>
             </div>
           </form>
